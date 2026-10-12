@@ -1,0 +1,99 @@
+# Template for a repository whose public website files are in its root.
+# Install as .github/workflows/feishu-pages.yml after selecting GitHub Actions
+# as the Pages source. Copy scripts/feishu-sync.mjs and tests/feishu-sync.test.mjs.
+# Repository secrets: FEISHU_APP_ID, FEISHU_APP_SECRET.
+# Repository variables: FEISHU_BASE_TOKEN, FEISHU_ARTICLES_TABLE_ID,
+# FEISHU_PROFILE_TABLE_ID. The app needs base:record:read and access to this Base.
+# Set FEISHU_SYNC_ENABLED=true only after the app can read this Base. Until then,
+# synchronization is skipped and the existing public snapshot can still deploy.
+# Never expose these credentials in client-side JavaScript or public artifacts.
+# Sources verified 2026-10-12:
+# https://github.com/larksuite/cli/blob/main/shortcuts/base/record_ops.go
+# https://github.com/larksuite/cli/blob/main/shortcuts/base/recordexport/dataset.go
+# https://github.com/larksuite/cli/blob/main/internal/credential/tat_fetch.go
+# https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+# Direct deploy-pages is intentional: commits made with GITHUB_TOKEN do not
+# themselves trigger another workflow or the legacy Pages branch build.
+name: Sync Feishu and publish homepage
+
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'styles.css'
+      - 'app.js'
+      - 'content.json'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'assets/**'
+      - 'scripts/feishu-sync.mjs'
+      - 'tests/feishu-sync.test.mjs'
+      - '.github/workflows/feishu-pages.yml'
+
+concurrency:
+  group: feishu-pages
+  cancel-in-progress: false
+
+jobs:
+  sync-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify synchronization boundaries
+        run: node --test tests/feishu-sync.test.mjs
+      - name: Read public content from private Feishu Base
+        if: ${{ vars.FEISHU_SYNC_ENABLED == 'true' }}
+        run: node scripts/feishu-sync.mjs
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_BASE_TOKEN: ${{ vars.FEISHU_BASE_TOKEN }}
+          FEISHU_ARTICLES_TABLE_ID: ${{ vars.FEISHU_ARTICLES_TABLE_ID }}
+          FEISHU_PROFILE_TABLE_ID: ${{ vars.FEISHU_PROFILE_TABLE_ID }}
+          SITE_DIR: '.'
+      - name: Save successfully validated public snapshot
+        shell: bash
+        run: |
+          if ! git diff --quiet -- content.json app.js; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add -- content.json app.js
+            git commit -m 'Sync public homepage content from Feishu'
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+      - uses: actions/configure-pages@v5
+      - name: Package only public website files
+        shell: bash
+        run: |
+          mkdir -p _site
+          cp index.html styles.css app.js content.json robots.txt sitemap.xml _site/
+          if [ -d assets ]; then cp -R assets _site/assets; fi
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+  deploy:
+    needs: sync-and-build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish validated website
+        id: deployment
+        uses: actions/deploy-pages@v4

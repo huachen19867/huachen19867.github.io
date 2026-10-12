@@ -85,22 +85,20 @@
 
     <section class="articles-section page-width" id="articles" aria-labelledby="articles-title">
       <div class="section-label"><span>02</span> 公开的札记</div>
-      <div class="section-heading"><div><h2 id="articles-title">边探索，边记录<span class="heading-dot">.</span></h2><p>在「<span data-profile="publication">陈化AI札记</span>」里，分享亲手试过的 AI 体验。</p></div><span class="article-count" id="article-count">已收录 01 篇</span></div>
+      <div class="section-heading"><div><h2 id="articles-title">边探索，边记录<span class="heading-dot">.</span></h2><p>在「<span data-profile="publication">陈化AI札记</span>」里，分享亲手试过的 AI 体验。</p></div><span class="article-count" id="article-count"></span></div>
       <div class="article-tools" id="article-tools" hidden>
         <div class="article-filters" id="article-filters" role="group" aria-label="按札记分类筛选"></div>
         <label class="article-search"><span class="sr-only">搜索札记标题和内容</span><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/><path d="M12 12L17 17"/></svg><input id="article-search" type="search" placeholder="找一篇札记" autocomplete="off"></label>
       </div>
       <p class="sr-only" id="article-results" aria-live="polite"></p>
-      <div id="article-list">
-        <article class="article-feature">
-          <a class="article-art" href="https://mp.weixin.qq.com/s/FqyxfRk8mADhWITH28vwHw" target="_blank" rel="noopener noreferrer" aria-label="阅读 Astra使用体验（在新窗口打开）">
+      <div id="article-list"><p class="article-empty">正在翻开札记。</p></div>
+      <template id="article-art-template">
+          <a class="article-art" href="#articles" target="_blank" rel="noopener noreferrer" aria-label="阅读札记">
             <span class="article-art-label">AN EXPERIMENT WITH ASTRA</span>
             <svg viewBox="0 0 450 285" aria-hidden="true" fill="none"><g stroke="#f1f0de" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="128" cy="211" r="46"/><circle cx="320" cy="211" r="46"/><path d="M128 211L183 133L236 211L128 211ZM183 133L272 133L236 211M272 133L320 211M258 112L281 112M272 133L270 112M165 133L198 133M237 211L250 194"/><path d="M225 106C182 109 170 85 183 63C198 35 234 42 240 64L251 70L301 75L253 86C256 99 246 104 225 106Z" fill="#ececd9"/><path d="M246 79C255 89 276 84 300 76"/><path d="M210 106C222 128 205 146 186 139L182 126M207 112L239 135L270 118M206 139L220 169L251 194"/><circle cx="234" cy="65" r="2" fill="#284937" stroke="none"/><path d="M207 58C214 53 219 53 223 55M59 139L75 139M354 120L367 120M361 113L361 127M68 244L383 244M97 83L105 79M321 47L332 51"/></g><circle cx="356" cy="59" r="21" fill="#eac579"/><path d="M51 191L79 191M41 205L69 205M51 219L77 219" stroke="#b3c59f" stroke-width="2.8" stroke-linecap="round"/></svg>
             <span class="article-art-bottom"><span>从一个小实验开始</span><span>↗</span></span>
           </a>
-          <div class="article-copy"><div class="article-meta"><span>AI 实践</span><time datetime="2026-09-29">2026.09.29</time></div><h3><a href="https://mp.weixin.qq.com/s/FqyxfRk8mADhWITH28vwHw" target="_blank" rel="noopener noreferrer">Astra使用体验</a></h3><p>从鹈鹕骑自行车的 SVG 动画开始，记录 Astra 的一次实际使用体验。</p><a class="read-link" href="https://mp.weixin.qq.com/s/FqyxfRk8mADhWITH28vwHw" target="_blank" rel="noopener noreferrer">去公众号读全文 <span aria-hidden="true">↗</span><span class="sr-only">（在新窗口打开）</span></a></div>
-        </article>
-      </div>
+      </template>
       <div class="article-reading-progress" id="article-reading-progress" hidden>
         <span id="article-visible-count">已展示 1 / 1 篇札记</span>
         <button class="article-load-more" id="article-load-more" type="button" aria-controls="article-list" hidden>再翻几篇 <span id="article-more-count" aria-hidden="true">+6</span></button>

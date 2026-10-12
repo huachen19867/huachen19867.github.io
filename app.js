@@ -175,7 +175,7 @@
   let toastTimer;
   const dialog = document.querySelector('#publication-dialog');
   const articleList = document.querySelector('#article-list');
-  const initialArticleArt = document.querySelector('.article-art').cloneNode(true);
+  const initialArticleArt = document.querySelector('#article-art-template').content.querySelector('.article-art').cloneNode(true);
 
   function safeArticleUrl(value) {
     try { const url = new URL(value); return url.protocol === 'https:' ? url.href : null; }
