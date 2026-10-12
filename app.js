@@ -21,148 +21,148 @@
     {
       "title": "后知后觉的GPT小姐真是逊呢",
       "date": "2026-10-03",
-      "summary": "记录 GPT 在执行刷课任务后重新强调使用边界的一段反差体验。",
       "category": "AI实践",
+      "summary": "记录 GPT 在执行刷课任务后重新强调使用边界的一段反差体验。",
       "url": "https://mp.weixin.qq.com/s/IgTbhakt77R5ZnMDggLxVw"
     },
     {
       "title": "智慧树/知到辅助：大学生最喜欢的一集",
       "date": "2026-10-01",
-      "summary": "介绍网课辅助控制台的运行方式、模型答题流程，以及需要人工处理的验证环节。",
       "category": "工具笔记",
+      "summary": "介绍网课辅助控制台的运行方式、模型答题流程，以及需要人工处理的验证环节。",
       "url": "https://mp.weixin.qq.com/s/TzfaIIkvKmxNxoD2b4P8Xg"
     },
     {
       "title": "一个查看双卡剩余流量的安卓App",
       "date": "2026-09-30",
-      "summary": "把两张手机卡的剩余流量集中到一个安卓应用中，并提供卡片展示和项目下载入口。",
       "category": "工具笔记",
+      "summary": "把两张手机卡的剩余流量集中到一个安卓应用中，并提供卡片展示和项目下载入口。",
       "url": "https://mp.weixin.qq.com/s/6slURhUf9duu5_WPRQIMmA"
     },
     {
       "title": "Astra使用体验",
       "date": "2026-09-29",
-      "summary": "通过 SVG 动画、电路绘制、视频、扫雷和 Live2D 等任务记录 Astra 的实际表现。",
       "category": "AI实践",
+      "summary": "通过 SVG 动画、电路绘制、视频、扫雷和 Live2D 等任务记录 Astra 的实际表现。",
       "url": "https://mp.weixin.qq.com/s/FqyxfRk8mADhWITH28vwHw"
     },
     {
       "title": "雨课堂辅助-安卓app",
       "date": "2026-09-13",
-      "summary": "将现有雨课堂工具精简为接入 DeepSeek API 的安卓答题应用，附界面和开源项目。",
       "category": "工具笔记",
+      "summary": "将现有雨课堂工具精简为接入 DeepSeek API 的安卓答题应用，附界面和开源项目。",
       "url": "https://mp.weixin.qq.com/s/TnIJIex54QdHIvjOWnxnfg"
     },
     {
       "title": "在cursor中如何古法手搓编译C/C++代码？",
       "date": "2026-09-05",
-      "summary": "整理 Cursor 配合 MinGW 编译 C/C++ 的环境配置、任务文件和多文件编译方法。",
       "category": "工具笔记",
+      "summary": "整理 Cursor 配合 MinGW 编译 C/C++ 的环境配置、任务文件和多文件编译方法。",
       "url": "https://mp.weixin.qq.com/s/FpNsE-w9u_uctbZ0zqShUA"
     },
     {
       "title": "来自GPT6的震撼",
       "date": "2026-09-04",
-      "summary": "对比早期电脑操作尝试与新的官方演示，记录对模型能力变化的直观感受。",
       "category": "AI实践",
+      "summary": "对比早期电脑操作尝试与新的官方演示，记录对模型能力变化的直观感受。",
       "url": "https://mp.weixin.qq.com/s/3OJeyFesl-5zx-coP5IrSw"
     },
     {
       "title": "从两次失败实践看AI的能力边界",
       "date": "2026-09-02",
-      "summary": "复盘交互摆件与 Live2D 制作的失败过程，反思 AI 协作中专业知识的重要性。",
       "category": "AI实践",
+      "summary": "复盘交互摆件与 Live2D 制作的失败过程，反思 AI 协作中专业知识的重要性。",
       "url": "https://mp.weixin.qq.com/s/dkU-y6SX2OgWA7xsWJCFRg"
     },
     {
       "title": "用 v4f 写小说被气晕",
       "date": "2026-08-16",
-      "summary": "记录使用 v4f 写小说时，对文风表现和情节逻辑之间落差的感受。",
       "category": "AI实践",
+      "summary": "记录使用 v4f 写小说时，对文风表现和情节逻辑之间落差的感受。",
       "url": "https://mp.weixin.qq.com/s/9gGxImqZlCLSrxjnswTb3g"
     },
     {
       "title": "DeepSeek Harness初体验",
       "date": "2026-08-14",
-      "summary": "从安装到界面修改测试，记录 DeepSeek Harness 的使用体验与遇到的问题。",
       "category": "AI实践",
+      "summary": "从安装到界面修改测试，记录 DeepSeek Harness 的使用体验与遇到的问题。",
       "url": "https://mp.weixin.qq.com/s/OJSuQ2nYAuZtlNGZgc6Piw"
     },
     {
       "title": "我做了一个奇象巡展手机端拼豆工具",
       "date": "2026-08-13",
-      "summary": "作者为缺少手机端辅助工具的拼豆玩法制作了安卓应用，并介绍安装、授权与尺寸校准。",
       "category": "工具笔记",
+      "summary": "作者为缺少手机端辅助工具的拼豆玩法制作了安卓应用，并介绍安装、授权与尺寸校准。",
       "url": "https://mp.weixin.qq.com/s/5xmOWD_8oLFlOMdgJ5J-aQ"
     },
     {
       "title": "我做了一个Windows本地视频播放器",
       "date": "2026-07-31",
-      "summary": "介绍自制的 Windows 本地视频播放器，并提供下载方式供读者设置为默认播放器。",
       "category": "工具笔记",
+      "summary": "介绍自制的 Windows 本地视频播放器，并提供下载方式供读者设置为默认播放器。",
       "url": "https://mp.weixin.qq.com/s/RHfyhya9VoGX7LJ8ueMVrA"
     },
     {
       "title": "从零开始带你vibe一个在线刷题平台",
       "date": "2026-07-02",
-      "summary": "演示从需求梳理到前后端实现的在线刷题平台开发，并借项目讨论 vibe coding 与 spec coding 的差别。",
       "category": "AI实践",
+      "summary": "演示从需求梳理到前后端实现的在线刷题平台开发，并借项目讨论 vibe coding 与 spec coding 的差别。",
       "url": "https://mp.weixin.qq.com/s/QfQp02sy618czL0TYBADog"
     },
     {
       "title": "一窥 AI 能力边界",
       "date": "2026-06-29",
-      "summary": "通过原理图作业中脚本生成与直接操作电路设计软件的失败经历，反思 AI 处理专业工程任务的能力边界。",
       "category": "AI实践",
+      "summary": "通过原理图作业中脚本生成与直接操作电路设计软件的失败经历，反思 AI 处理专业工程任务的能力边界。",
       "url": "https://mp.weixin.qq.com/s/QjU85jcJ92oJCzeHXfSkig"
     },
     {
       "title": "我做了一个本地音乐播放器",
       "date": "2026-06-21",
-      "summary": "分享一款 Android 本地音乐播放器，支持多歌单、批量导入、播放模式切换和后台控制。",
       "category": "工具笔记",
+      "summary": "分享一款 Android 本地音乐播放器，支持多歌单、批量导入、播放模式切换和后台控制。",
       "url": "https://mp.weixin.qq.com/s/6mYfXR_pzeCikfcjhMgHvg"
     },
     {
       "title": "面向Codex的Kimi Work 免费版实测",
       "date": "2026-06-09",
-      "summary": "通过数据处理、系统修复、游戏调试和 Skills 调用等任务实测 Kimi Work，认为它速度快但处理复杂任务的稳定性仍有限。",
       "category": "AI实践",
+      "summary": "通过数据处理、系统修复、游戏调试和 Skills 调用等任务实测 Kimi Work，认为它速度快但处理复杂任务的稳定性仍有限。",
       "url": "https://mp.weixin.qq.com/s/SVH6kzdPiGtoY9F1OV35kQ"
     },
     {
       "title": "解决 codex一直reconnecting的问题",
       "date": "2026-05-08",
-      "summary": "记录让 Codex 根据重连界面截图定位并修复反复 reconnecting 问题的一次快速排障。",
       "category": "工具笔记",
+      "summary": "记录让 Codex 根据重连界面截图定位并修复反复 reconnecting 问题的一次快速排障。",
       "url": "https://mp.weixin.qq.com/s/hddzbob1m4CqlksFpTdB6w"
     },
     {
       "title": "用codex改cursor主题配色",
       "date": "2026-04-29",
-      "summary": "展示用 Codex 将 Cursor 主题改成 Claude 式暖米白背景、灰棕文字与陶土橙强调色的效果。",
       "category": "AI实践",
+      "summary": "展示用 Codex 将 Cursor 主题改成 Claude 式暖米白背景、灰棕文字与陶土橙强调色的效果。",
       "url": "https://mp.weixin.qq.com/s/j-bpifVGpg7IqDfRDjAm2w"
     },
     {
       "title": "模拟恐怖提示词",
       "date": "2026-04-28",
-      "summary": "提供一条生成伪纪录片与 VHS 恐怖录像质感画面的提示词，强调摄像机界面、噪点和压暗氛围。",
       "category": "AI实践",
+      "summary": "提供一条生成伪纪录片与 VHS 恐怖录像质感画面的提示词，强调摄像机界面、噪点和压暗氛围。",
       "url": "https://mp.weixin.qq.com/s/p87OmCxAAma6FxQwpUv0WQ"
     },
     {
       "title": "汉服初遇指南",
       "date": "2026-02-18",
-      "summary": "从汉服的基本特征与服饰结构入门，概览先秦至明代的多种服装形制及其特点。",
       "category": "文化知识",
+      "summary": "从汉服的基本特征与服饰结构入门，概览先秦至明代的多种服装形制及其特点。",
       "url": "https://mp.weixin.qq.com/s/AF9BQSryXJ7q2SBL7CFF3w"
     },
     {
       "title": "Midjourney新版本测评：专攻动漫有多强？",
       "date": "2026-01-31",
-      "summary": "介绍 Midjourney 的 Niji V7 更新和启用方式，并用多组动漫提示词展示其出图表现。",
       "category": "AI实践",
+      "summary": "介绍 Midjourney 的 Niji V7 更新和启用方式，并用多组动漫提示词展示其出图表现。",
       "url": "https://mp.weixin.qq.com/s/0AkDA7T8KzfwFWMSRQcdig"
     }
   ]
