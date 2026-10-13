@@ -211,6 +211,17 @@ export function buildPublicContent(articleRecords, profileRecords, sensitive = [
   };
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profile.email)) fail('INVALID_EMAIL');
   if (profile.cet4.score !== null && (!Number.isInteger(profile.cet4.score) || profile.cet4.score < 0 || profile.cet4.score > 710)) fail('INVALID_CET4_SCORE');
+  // Extra profile columns are optional so existing databases keep working.
+  if (Object.hasOwn(fields, '微信')) profile.wechat = text(fields['微信'], { max: 100 });
+  const parts = [['listening', '四级听力'], ['reading', '四级阅读'], ['writingTranslation', '四级写作和翻译']];
+  for (const [key, field] of parts) {
+    if (!Object.hasOwn(fields, field)) continue;
+    const value = fields[field] ?? null;
+    if (value !== null && (!Number.isInteger(value) || value < 0 || value > 710)) fail('INVALID_CET4_SCORE');
+    profile.cet4[key] = value;
+  }
+  const subscores = parts.map(([key]) => profile.cet4[key]);
+  if (profile.cet4.score !== null && subscores.every(Number.isInteger) && subscores.reduce((sum, value) => sum + value, 0) !== profile.cet4.score) fail('INCONSISTENT_CET4_SCORE');
   const articles = [];
   for (const record of articleRecords) {
     const fields = record.fields;

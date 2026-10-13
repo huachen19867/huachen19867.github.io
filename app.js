@@ -13,9 +13,13 @@
     "publication": "陈化AI札记",
     "intro": "在校园里学习，也在 AI 的新世界里探索。把亲手试过的工具、值得记下的体验，慢慢写成札记。",
     "cet4": {
-      "score": null,
-      "date": null
-    }
+      "score": 448,
+      "date": null,
+      "listening": 100,
+      "reading": 210,
+      "writingTranslation": 138
+    },
+    "wechat": "huachen_baidai"
   },
   "articles": [
     {
@@ -285,22 +289,32 @@
       score.textContent = '等待补充 '; score.classList.add('pending-score'); const dot = document.createElement('span'); dot.className = 'pending-dot'; dot.setAttribute('aria-hidden', 'true'); score.append(dot);
     }
     document.querySelector('#cet4-date').textContent = cet4.date || '成绩记录';
+    const scoreDetails = document.querySelector('#cet4-details');
+    scoreDetails.textContent = [['listening', '听力'], ['reading', '阅读'], ['writingTranslation', '写作和翻译']]
+      .filter(([key]) => Number.isInteger(cet4[key])).map(([key, label]) => `${label} ${cet4[key]}`).join(' · ');
+    scoreDetails.hidden = !scoreDetails.textContent;
+    const wechat = typeof profile.wechat === 'string' ? profile.wechat.trim() : '';
+    document.querySelector('#wechat-row').hidden = !wechat;
+    document.querySelector('#wechat-id').textContent = wechat;
     setupArticleFilters();
   }
   function showStatus(message) {
     const toast = document.querySelector('#status-message'); clearTimeout(toastTimer); toast.textContent = message; toast.classList.add('is-visible');
     toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 3500);
   }
-  document.querySelector('#copy-email').addEventListener('click', async () => {
-    const email = currentContent.profile.email;
+  [['#copy-email', 'email', '邮箱已复制，期待你的来信。'], ['#copy-wechat', 'wechat', '微信号已复制，欢迎来聊。']].forEach(([selector, field, message]) => {
+  document.querySelector(selector).addEventListener('click', async () => {
+    const value = currentContent.profile[field];
+    if (!value) return;
     try {
-      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(email);
+      if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(value);
       else {
-        const input = document.createElement('textarea'); input.value = email; input.setAttribute('readonly', ''); input.style.cssText = 'position:fixed;top:-9999px;left:-9999px'; document.body.append(input); input.select();
-        const copied = document.execCommand('copy'); input.remove(); document.querySelector('#copy-email').focus(); if (!copied) throw new Error('Copy unavailable');
+        const input = document.createElement('textarea'); input.value = value; input.setAttribute('readonly', ''); input.style.cssText = 'position:fixed;top:-9999px;left:-9999px'; document.body.append(input); input.select();
+        const copied = document.execCommand('copy'); input.remove(); document.querySelector(selector).focus(); if (!copied) throw new Error('Copy unavailable');
       }
-      showStatus('邮箱已复制，期待你的来信。');
-    } catch { showStatus(`复制暂不可用，请手动复制：${email}`); }
+      showStatus(message);
+    } catch { showStatus(`复制暂不可用，请手动复制：${value}`); }
+  });
   });
   document.querySelectorAll('[data-open-publication]').forEach(button => button.addEventListener('click', () => dialog.showModal()));
   document.querySelector('#article-search').addEventListener('input', () => applyArticleFilters());
