@@ -324,7 +324,7 @@
   document.querySelector('#copyright-year').textContent = String(new Date().getFullYear());
   render(fallbackContent);
   if (location.protocol !== 'file:') {
-    fetch('./content.json').then(response => { if (!response.ok) throw new Error('Content unavailable'); return response.json(); }).then(content => {
+    fetch('./content.json', { cache: 'no-cache' }).then(response => { if (!response.ok) throw new Error('Content unavailable'); return response.json(); }).then(content => {
       // A slow response for the same snapshot must preserve the visitor's filters
       // and expanded list instead of rendering the initial six articles again.
       if (JSON.stringify(content) !== JSON.stringify(currentContent)) render(content);
