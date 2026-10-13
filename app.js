@@ -179,7 +179,6 @@
   let toastTimer;
   const dialog = document.querySelector('#publication-dialog');
   const articleList = document.querySelector('#article-list');
-  const initialArticleArt = document.querySelector('#article-art-template').content.querySelector('.article-art').cloneNode(true);
 
   function safeArticleUrl(value) {
     try { const url = new URL(value); return url.protocol === 'https:' ? url.href : null; }
@@ -213,9 +212,9 @@
       const empty = document.createElement('p'); empty.className = 'article-empty'; empty.textContent = totalCount ? '没有找到这篇札记，试试其他关键词或分类。' : '札记正在整理，新的发现很快见。'; articleList.append(empty);
       return;
     }
-    visible.forEach((article, index) => {
+    visible.forEach(article => {
       const url = safeArticleUrl(article.url);
-      const element = document.createElement('article'); element.className = index === 0 ? 'article-feature' : 'article-secondary';
+      const element = document.createElement('article'); element.className = 'article-secondary';
       const time = document.createElement('time');
       if (/^\d{4}-\d{2}-\d{2}$/.test(article.date || '')) { time.dateTime = article.date; time.textContent = article.date.replaceAll('-', '.'); }
       const copy = document.createElement('div'); copy.className = 'article-copy';
@@ -228,17 +227,6 @@
       const readLink = externalLink(url, '去公众号读全文 ', 'read-link'); readLink.append(arrow());
       const accessibleHint = document.createElement('span'); accessibleHint.className = 'sr-only'; accessibleHint.textContent = '（在新窗口打开）'; readLink.append(accessibleHint);
       copy.append(meta, title, summary, readLink);
-      if (index === 0) {
-        const art = initialArticleArt.cloneNode(true); art.href = url; art.setAttribute('aria-label', `阅读 ${article.title}（在新窗口打开）`);
-        // The pelican drawing illustrates the confirmed Astra article only.
-        if (article.title !== 'Astra使用体验') {
-          art.querySelector('svg').remove();
-          art.querySelector('.article-art-label').textContent = 'FIELD NOTES';
-          const artTitle = document.createElement('p'); artTitle.textContent = article.title; artTitle.style.cssText = 'font-size:32px;line-height:1.5;min-height:190px;display:flex;align-items:center;margin:20px 0';
-          art.insertBefore(artTitle, art.querySelector('.article-art-bottom'));
-        }
-        element.append(art);
-      }
       element.append(copy); articleList.append(element);
     });
   }
