@@ -23,6 +23,13 @@
   },
   "articles": [
     {
+      "title": "AI逆向一切·请假平台",
+      "date": "2026-10-13",
+      "category": "AI实践",
+      "summary": "记录借助 AI 复刻校园请假平台、连接飞书数据，以及尝试复刻游戏的过程与体会。",
+      "url": "https://mp.weixin.qq.com/s/obDNhvEYv0HKQnAR3uGhAw"
+    },
+    {
       "title": "后知后觉的GPT小姐真是逊呢",
       "date": "2026-10-03",
       "category": "AI实践",
